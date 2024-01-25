@@ -20,7 +20,7 @@ export default function Button({
       hx-post={hxPost}
       hx-swap={hxSwap}
       hx-target={hxTarget}
-      className={`px-2 py-1 bg-blue-500 rounded ${className}`}
+      className={`rounded bg-blue-500 px-2 py-1 ${className}`}
     >
       {children}
     </button>

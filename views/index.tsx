@@ -17,8 +17,8 @@ export default function Index({ message, counter }: IndexProps) {
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
       </head>
       <body>
-        <main className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-5xl mb-8">NestJs | HTMX | React</h1>
+        <main className="flex h-screen flex-col items-center justify-center">
+          <h1 className="mb-8 text-5xl">NestJs | HTMX | React</h1>
           <Message message={message} />
           <Counter counter={counter} />
           <Button
