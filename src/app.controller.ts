@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 import renderComponent from './renderComponent';
 
@@ -8,24 +9,28 @@ let counterState = 0;
 @Controller()
 export class AppController {
   @Get('')
-  index() {
-    return renderComponent('index', {
-      message: messageState,
-      counter: counterState,
-    });
+  async index(@Res() res: Response) {
+    res.send(
+      await renderComponent('index', {
+        message: messageState,
+        counter: counterState,
+      }),
+    );
   }
 
   @Post('increment')
-  increment() {
+  async increment(@Res() res: Response) {
     counterState++;
 
-    return renderComponent('components/counter', {
-      counter: counterState,
-    });
+    res.send(
+      await renderComponent('components/counter', {
+        counter: counterState,
+      }),
+    );
   }
 
   @Post('change')
-  change() {
+  async change(@Res() res: Response) {
     const messageStateChanged = messageState === 'Hello HTMX!';
     if (messageStateChanged) {
       messageState = 'Hello World!';
@@ -33,6 +38,10 @@ export class AppController {
       messageState = 'Hello HTMX!';
     }
 
-    return renderComponent('components/message', { message: messageState });
+    res.send(
+      await renderComponent('components/message', {
+        message: messageState,
+      }),
+    );
   }
 }
