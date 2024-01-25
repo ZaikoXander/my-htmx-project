@@ -12,7 +12,8 @@ export default function Index({ message, counter }: IndexProps) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My HTMX project</title>
-        <link rel="stylesheet" href="/output.css" />
+        <link rel="shortcut icon" href="htmx-icon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="output.css" />
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
       </head>
       <body>
