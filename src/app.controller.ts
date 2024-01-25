@@ -11,10 +11,11 @@ export class AppController {
   @Get('')
   async index(@Res() res: Response) {
     res.send(
-      await renderComponent('index', {
-        message: messageState,
-        counter: counterState,
-      }),
+      '<!DOCTYPE html>' +
+        (await renderComponent('index', {
+          message: messageState,
+          counter: counterState,
+        })),
     );
   }
 
